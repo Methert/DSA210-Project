@@ -1,112 +1,129 @@
 # E-commerce Consumer Behavior Analysis
 
 ## DSA210 - Introduction to Data Science
-### EDA and Hypothesis Testing Phase
-### Ahmet Ertekin
+**Exploratory Data Analysis Phase**  
+**Ahmet Ertekin**
 
-## Project Overview
-This project analyzes online shopping behavior using the Online Shoppers Purchasing Intention dataset. Through advanced feature engineering and data enrichment, I investigate what browsing patterns predict successful conversions and which factors influence purchase decisions.
+---
 
-## Motivation
-I'm interested in understanding how consumers make decisions when shopping online, particularly what data points influence their purchasing choices. By analyzing e-commerce data, we can identify patterns in how browsing behaviors affect consumer choices. This data-driven approach reveals which elements have the strongest correlation with purchasing decisions and what browsing patterns most frequently lead to conversions.
+##  Project Overview
+
+This project explores consumer behavior on an e-commerce platform using the **Online Shoppers Purchasing Intention Dataset**. The goal is to investigate which browsing patterns, time-based metrics, and user engagement scores are associated with higher conversion rates. Through feature enrichment and exploratory data analysis (EDA), I attempt to draw insights into what makes an online session more likely to result in a purchase.
+
+---
+
+##  Motivation
+
+As someone interested in how digital behavior translates into real decisions, I wanted to explore what drives an online shopper to complete a purchase. Can certain metrics like time spent on pages, bounce rates, or time of visit reveal user intent? With this project, I aim to combine behavioral intuition with data-driven analysis to answer those questions.
+
+---
 
 ## Research Questions
-1. Which browsing patterns and website interaction metrics best predict purchase completion?
-2. What browsing behaviors indicate high purchase intent versus casual browsing?
-3. How do seasonal and temporal factors (weekend vs. weekday, month) affect browsing and purchasing behavior?
-4. How does time spent on different page types relate to purchase likelihood?
-5. What user engagement metrics correlate most strongly with conversion?
-6. How do different user segments (new vs. returning visitors) differ in their browsing and purchasing behavior?
-7. What is the relationship between bounce rates, exit rates, and conversion likelihood?
+
+1. Which behavioral metrics are most correlated with purchase completion?
+2. How do bounce and exit rates influence conversion?
+3. How do different segments of users (e.g., quick bouncers, loyal visitors) behave?
+4. Does time spent on product or informational pages predict purchases?
+5. Do weekend visits or specific months lead to more purchases?
+
+---
 
 ## Data Source
-**Online Shoppers Purchasing Intention Dataset**
-- Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset)
-- What it contains:
-  - 12,330 sessions of browsing data
-  - Page views, duration, and bounce rates
-  - Weekend/weekday information
-  - Month and seasonal indicators
-  - Visitor type (new vs. returning)
-  - Boolean conversion attribute (purchase or no purchase)
 
-## What I've Done
+**Online Shoppers Purchasing Intention Dataset**  
+Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset)  
+- 12,330 browsing sessions  
+- Page views, durations, bounce/exit rates  
+- Timestamps, visitor type (new vs. returning)  
+- Final purchase (conversion) flag  
 
-### Data Preparation and Enrichment
-Instead of using the raw data as is, I've applied significant transformations and created derived features:
+---
 
-1. **Advanced Behavioral Metrics**
-   - Browsing efficiency ratio
-   - Content-to-product page ratio
-   - Engagement depth scoring
-   - Value potential metrics
+## What I’ve Done (So Far)
 
-2. **User Segmentation**
-   - Behavioral clustering using K-means
-   - Interest category inference
-   - Loyalty scoring
+### 1. Data Cleaning  
+Removed outliers, handled 0-duration cases, ensured feature consistency.
 
-3. **Temporal and Engagement Analysis**
-   - Time efficiency metrics for different page types
-   - Comprehensive engagement scoring
-   - Bounce and exit rate categorization
+### 2. Feature Enrichment  
+Using the original dataset, I created new behavioral metrics:
+- **Browsing Efficiency**
+- **Engagement Depth and Score**
+- **Value per Page and Value Potential**
+- **Time Efficiency and Average Time per Page**
+- **Interest Category Inference** (based on page type ratios)
+- **Behavioral Segmentation via KMeans**
 
-### Analysis Methods
-1. **Browsing Pattern Analysis**
-   - Identified browsing behaviors that lead to conversion
-   - Calculated engagement metrics that predict purchases
-   - Compared successful vs. unsuccessful shopping sessions
+These were designed to better represent how users interact with the site and what patterns indicate higher intent to purchase.
 
-2. **Temporal Behavior Analysis**
-   - Compared shopping patterns across different times
-   - Analyzed weekend vs. weekday browsing differences
-   - Measured how time spent on site impacts purchase likelihood
+### 3. Exploratory Data Analysis  
+I explored:
+- Conversion rates by visitor type, interest category, and behavioral segment
+- Distributions of engagement and value-based metrics
+- Correlation between behavioral scores and conversion
+- Time-based patterns (weekend vs. weekday)
 
-3. **Behavioral Segmentation**
-   - Created behavior clusters using K-means
-   - Identified key segments like "High Converters" and "Product Browsers"
-   - Analyzed conversion rates across different segments
+---
 
-4. **Interest Category Analysis**
-   - Inferred user interests based on browsing patterns
-   - Created categories like "Product-Focused" and "Research-Oriented"
-   - Examined how interest categories relate to conversion
+## Key Findings
 
-### Visualizations
-- Conversion rates by behavior segment
-- Engagement score distributions
-- Value potential across user segments
-- Browsing efficiency metrics and their relationship to conversion
-- Time spent on different page types by conversion outcome
+- **Conversion Rate:** 15.63% overall
+- **Strongest predictors of purchase:**
+  - `value_potential` and `PageValues` (both ~0.49 correlation)
+  - `engagement_score` (moderate correlation ~0.15)
+- **Behavioral segments** showed huge differences:
+  - *High Converters*: 78% conversion rate
+  - *Quick Bouncers*: Less than 1%
+- **Interest categories** matter:
+  - *Balanced Shoppers* had the highest conversion
+  - *Research-Oriented* users rarely convert
+- **Returning visitors** were far more likely to convert than new ones
 
-## Key Findings (Preliminary)
-- Behavioral clusters show significant differences in conversion rates
-- Time efficiency metrics strongly correlate with purchase likelihood
-- The content-to-product ratio provides insights into user intent
-- Interest categories demonstrate clear patterns in conversion behavior
-- Engagement depth scoring effectively predicts purchase outcomes
-
-## Repository Structure
-- `data/`
-  - `raw/`: Original dataset
-  - `processed/`: Cleaned and processed dataset
-  - `enriched/`: Dataset with engineered features
-- `notebooks/`
-  - `data_preparation.ipynb`: Initial data cleaning
-  - `online_shoppers_enriched_data.ipynb`: Feature engineering and enrichment
-  - `exploratory_analysis.ipynb`: EDA and visualization (in progress)
-  - `hypothesis_testing.ipynb`: Statistical tests (in progress)
-- `figures/`: Visualizations generated from the analysis
-- `README.md`: Project documentation
+---
 
 ## Next Steps
-1. Complete in-depth exploratory data analysis on the enriched dataset
-2. Formulate and test specific hypotheses about shopping behavior
-3. Create comprehensive visualizations of key findings
-4. Develop predictive models for the machine learning phase
-5. Document insights and business applications
 
-## Technical Implementation
-- Python 3.12
-- Key libraries: pandas, numpy, scikit-learn, matplotlib, seaborn
-- Jupyter notebooks for documentation and analysis
+I plan to expand the analysis with statistical and predictive techniques:
+1. **Hypothesis Testing**
+   - A/B tests and t-tests to compare means (e.g., weekend vs. weekday sessions)
+   - ANOVA or F-tests to test variation across multiple categories
+2. **Predictive Modeling**
+   - Train classifiers to predict conversion using behavioral metrics
+3. **Final Report**
+   - Combine findings, visuals, and code into a comprehensive GitHub-based report
+
+---
+
+## Project Process and AI Assistance
+
+The core idea and structure of this project were developed by me. I wanted to explore how user behavior affects online purchases. Some parts of the implementation, especially in feature engineering and visualization (e.g., clustering, radar charts), were created with the assistance of AI tools like ChatGPT. I used AI for suggestions, explanations, and code support, but always reviewed and modified the outputs.
+
+This README, project plan, and analysis represent my own thinking, and I’ve been careful to ensure I understand every step of the process.
+
+---
+
+## Tools & Technologies
+
+- **Python 3.12**
+- **pandas, numpy** – data manipulation
+- **matplotlib, seaborn** – data visualization
+- **scikit-learn** – clustering and normalization
+- **Jupyter Notebooks** – exploratory workflow
+
+---
+
+## Repository Structure
+
+```bash
+├── data/
+│   ├── raw/                  # Original dataset
+│   ├── processed/            # Cleaned dataset
+│   └── enriched/             # Feature-enriched version
+│
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   └── 03_exploratory_analysis.ipynb
+│
+├── figures/                  # Saved plots (optional if using plt.show)
+├── requirements.txt
+└── README.md
