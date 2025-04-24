@@ -1,37 +1,25 @@
 # E-commerce Consumer Behavior Analysis
 
 ## DSA210 - Introduction to Data Science
-### Project Proposal
+### EDA and Hypothesis Testing Phase
 ### Ahmet Ertekin
 
 ## Project Overview
-This project will analyze online shopping behavior using two complementary datasets: Amazon Reviews 2023 and Online Shoppers Purchasing Intention. I'll investigate what factors influence purchase decisions and post-purchase satisfaction, as well as which browsing patterns predict successful conversions.
+This project analyzes online shopping behavior using the Online Shoppers Purchasing Intention dataset. Through advanced feature engineering and data enrichment, I investigate what browsing patterns predict successful conversions and which factors influence purchase decisions.
 
 ## Motivation
-I'm interested in understanding how consumers make decisions when shopping online, particularly what data points influence their purchasing choices. By analyzing e-commerce data, we can identify patterns in how product features, pricing, and browsing behaviors affect consumer choices. This data-driven approach can reveal which elements have the strongest correlation with purchasing decisions and what browsing patterns most frequently lead to conversions.
+I'm interested in understanding how consumers make decisions when shopping online, particularly what data points influence their purchasing choices. By analyzing e-commerce data, we can identify patterns in how browsing behaviors affect consumer choices. This data-driven approach reveals which elements have the strongest correlation with purchasing decisions and what browsing patterns most frequently lead to conversions.
 
 ## Research Questions
-1. Which browsing patterns and website interaction metrics best predict purchase completion? (Shoppers Intention dataset)
-2. What browsing behaviors indicate high purchase intent versus casual browsing? (Shoppers Intention dataset)
-3. How do seasonal and temporal factors (weekend vs. weekday, month) affect browsing and purchasing behavior? (Shoppers Intention dataset)
-4. How does time spent on product pages relate to purchase likelihood? (Shoppers Intention dataset)
-5. What product features receive the most attention in positive versus negative reviews? (Amazon Reviews dataset)
-6. How do review patterns differ between product categories and price points? (Amazon Reviews dataset)
-7. What makes reviews helpful to other consumers? (Amazon Reviews dataset)
-8. How does verified purchase status affect review content and helpfulness? (Amazon Reviews dataset)
+1. Which browsing patterns and website interaction metrics best predict purchase completion?
+2. What browsing behaviors indicate high purchase intent versus casual browsing?
+3. How do seasonal and temporal factors (weekend vs. weekday, month) affect browsing and purchasing behavior?
+4. How does time spent on different page types relate to purchase likelihood?
+5. What user engagement metrics correlate most strongly with conversion?
+6. How do different user segments (new vs. returning visitors) differ in their browsing and purchasing behavior?
+7. What is the relationship between bounce rates, exit rates, and conversion likelihood?
 
-## Data Sources
-
-### Primary Datasets
-**Amazon Reviews 2023 Dataset**
-- Source: [Amazon Reviews 2023](https://amazon-reviews-2023.github.io)
-- What it contains:
-  - 31 million customer reviews
-  - Product metadata (price, features, categories)
-  - Verified purchase labels
-  - Review ratings and helpful votes
-  - Temporal information (review dates)
-
+## Data Source
 **Online Shoppers Purchasing Intention Dataset**
 - Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset)
 - What it contains:
@@ -41,76 +29,84 @@ I'm interested in understanding how consumers make decisions when shopping onlin
   - Month and seasonal indicators
   - Visitor type (new vs. returning)
   - Boolean conversion attribute (purchase or no purchase)
-  - Traffic type and region information
 
-## What I'll Do
+## What I've Done
 
-### Data Preparation
-1. Clean and organize the Amazon review data
-   - Process review text for analysis
-   - Extract product categories and price information
-   - Identify verified purchases and helpful votes
-   
-2. Process the online shopper intention dataset
-   - Calculate engagement metrics (time on page, bounce rate)
-   - Identify session patterns
-   - Prepare temporal features (weekend, month)
+### Data Preparation and Enrichment
+Instead of using the raw data as is, I've applied significant transformations and created derived features:
+
+1. **Advanced Behavioral Metrics**
+   - Browsing efficiency ratio
+   - Content-to-product page ratio
+   - Engagement depth scoring
+   - Value potential metrics
+
+2. **User Segmentation**
+   - Behavioral clustering using K-means
+   - Interest category inference
+   - Loyalty scoring
+
+3. **Temporal and Engagement Analysis**
+   - Time efficiency metrics for different page types
+   - Comprehensive engagement scoring
+   - Bounce and exit rate categorization
 
 ### Analysis Methods
-1. **Browsing Pattern Analysis** (Shoppers Intention dataset)
-   - Identify browsing behaviors that lead to conversion
-   - Calculate engagement metrics that predict purchases
-   - Compare successful vs. unsuccessful shopping sessions
+1. **Browsing Pattern Analysis**
+   - Identified browsing behaviors that lead to conversion
+   - Calculated engagement metrics that predict purchases
+   - Compared successful vs. unsuccessful shopping sessions
 
-2. **Temporal Behavior Analysis** (Shoppers Intention dataset)
-   - Compare shopping patterns across different times
-   - Analyze weekend vs. weekday browsing differences
-   - Measure how time spent on site impacts purchase likelihood
+2. **Temporal Behavior Analysis**
+   - Compared shopping patterns across different times
+   - Analyzed weekend vs. weekday browsing differences
+   - Measured how time spent on site impacts purchase likelihood
 
-3. **Review Content Analysis** (Amazon Reviews dataset)
-   - Extract key terms from positive and negative reviews
-   - Identify frequently mentioned product features
-   - Compare review content across different product categories
+3. **Behavioral Segmentation**
+   - Created behavior clusters using K-means
+   - Identified key segments like "High Converters" and "Product Browsers"
+   - Analyzed conversion rates across different segments
 
-4. **Review Quality Analysis** (Amazon Reviews dataset)
-   - Compare verified vs. non-verified purchase reviews
-   - Analyze what characteristics make reviews helpful to others
-   - Measure how review length relates to helpfulness
-
-5. **Product Category Analysis** (Amazon Reviews dataset)
-   - Compare review patterns across different product categories
-   - Analyze how price points affect review sentiment
-   - This analysis may be challenging due to dataset limitations, but could yield valuable insights if successful
-
-6. **Conversion Prediction Modeling** (Shoppers Intention dataset)
-   - Build models to predict purchase completion from browsing data
-   - Identify the strongest predictors of conversion
-   - Create customer segmentation based on browsing behaviors
+4. **Interest Category Analysis**
+   - Inferred user interests based on browsing patterns
+   - Created categories like "Product-Focused" and "Research-Oriented"
+   - Examined how interest categories relate to conversion
 
 ### Visualizations
-- Heat maps of conversion factors
-- Funnel charts showing browsing-to-purchase journey
-- Word clouds from review content
-- Bar charts of review helpfulness by category
-- Time series charts of browsing patterns
+- Conversion rates by behavior segment
+- Engagement score distributions
+- Value potential across user segments
+- Browsing efficiency metrics and their relationship to conversion
+- Time spent on different page types by conversion outcome
 
-## Possible Limitations
-- The two datasets cannot be directly linked
-- Review data represents only customers who chose to leave feedback
-- Browsing data doesn't contain actual product information
-- The Amazon Reviews dataset is very large and may require sampling
-- No demographic information in either dataset
-- Limited regional information in the browsing dataset
+## Key Findings (Preliminary)
+- Behavioral clusters show significant differences in conversion rates
+- Time efficiency metrics strongly correlate with purchase likelihood
+- The content-to-product ratio provides insights into user intent
+- Interest categories demonstrate clear patterns in conversion behavior
+- Engagement depth scoring effectively predicts purchase outcomes
 
-## Expected Results
-This project will show:
-1. Browsing patterns that most strongly indicate purchase intent
-2. Product features that consistently drive positive reviews
-3. Temporal patterns in online shopping behavior
-4. Engagement metrics that best predict conversion
-5. Characteristics of helpful vs. unhelpful reviews
-6. Differences in review patterns across product categories
-7. Effective segmentation of shoppers based on browsing behavior
+## Repository Structure
+- `data/`
+  - `raw/`: Original dataset
+  - `processed/`: Cleaned and processed dataset
+  - `enriched/`: Dataset with engineered features
+- `notebooks/`
+  - `data_preparation.ipynb`: Initial data cleaning
+  - `online_shoppers_enriched_data.ipynb`: Feature engineering and enrichment
+  - `exploratory_analysis.ipynb`: EDA and visualization (in progress)
+  - `hypothesis_testing.ipynb`: Statistical tests (in progress)
+- `figures/`: Visualizations generated from the analysis
+- `README.md`: Project documentation
 
-## Business Applications
-This project will provide valuable insights for e-commerce businesses to optimize their websites, improve product listings, and develop more effective marketing strategies based on real consumer behavior data. The findings can help businesses understand what drives both browsing conversion and post-purchase satisfaction.      
+## Next Steps
+1. Complete in-depth exploratory data analysis on the enriched dataset
+2. Formulate and test specific hypotheses about shopping behavior
+3. Create comprehensive visualizations of key findings
+4. Develop predictive models for the machine learning phase
+5. Document insights and business applications
+
+## Technical Implementation
+- Python 3.12
+- Key libraries: pandas, numpy, scikit-learn, matplotlib, seaborn
+- Jupyter notebooks for documentation and analysis
