@@ -39,57 +39,51 @@ Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/46
 
 ---
 
-## What I’ve Done (So Far)
+## What I’ve Done So Far
 
-### 1. Data Cleaning  
-Removed outliers, handled 0-duration cases, ensured feature consistency.
+### 1. Data Cleaning
+- Handled zero-duration sessions  
+- Checked for outliers and consistency  
 
-### 2. Feature Enrichment  
-Using the original dataset, I created new behavioral metrics:
-- **Browsing Efficiency**
-- **Engagement Depth and Score**
-- **Value per Page and Value Potential**
-- **Time Efficiency and Average Time per Page**
-- **Interest Category Inference** (based on page type ratios)
-- **Behavioral Segmentation via KMeans**
+### 2. Feature Engineering
+Created several new metrics:
+- Engagement Score combining time, clicks, and bounce rates  
+- Browsing Efficiency and Time Efficiency  
+- Interest Category based on page focus (product, informational, etc.)  
+- Behavioral Segmentation using KMeans clustering  
 
-These were designed to better represent how users interact with the site and what patterns indicate higher intent to purchase.
+### 3. Exploratory Data Analysis (EDA)
+- Analyzed conversion patterns across visitor types, behavior clusters, and months  
+- Visualized engagement vs. conversion distributions  
+- Investigated bounce/exit rates and their effect on outcomes  
 
-### 3. Exploratory Data Analysis  
-I explored:
-- Conversion rates by visitor type, interest category, and behavioral segment
-- Distributions of engagement and value-based metrics
-- Correlation between behavioral scores and conversion
-- Time-based patterns (weekend vs. weekday)
+### 4. Hypothesis Testing
+Used statistical tests to confirm whether behavior differences between converters and non-converters were significant:
+- Weekend vs Weekday → Z-Test (p = 0.0022)  
+- Bounce Rate → t-Test (p < 0.001)  
+- Interest Category → ANOVA (p = 0.1523)  
+- Engagement Score → t-Test (p < 0.001)  
 
 ---
 
 ## Key Findings
 
-- **Conversion Rate:** 15.63% overall
-- **Strongest predictors of purchase:**
-  - `value_potential` and `PageValues` (both ~0.49 correlation)
-  - `engagement_score` (moderate correlation ~0.15)
-- **Behavioral segments** showed huge differences:
-  - *High Converters*: 78% conversion rate
-  - *Quick Bouncers*: Less than 1%
-- **Interest categories** matter:
-  - *Balanced Shoppers* had the highest conversion
-  - *Research-Oriented* users rarely convert
-- **Returning visitors** were far more likely to convert than new ones
+- Conversion rate: 15.63% overall  
+- Strongest predictors: `value_potential`, `PageValues`, `engagement_score`  
+- Segment Insights:  
+  - High Converters segment had a 78% conversion rate  
+  - Quick Bouncers converted less than 1%  
+- Returning visitors converted significantly more than new visitors  
+- Engagement score is strongly linked with conversion behavior  
 
 ---
 
 ## Next Steps
 
-I plan to expand the analysis with statistical and predictive techniques:
-1. **Hypothesis Testing**
-   - A/B tests and t-tests to compare means (e.g., weekend vs. weekday sessions)
-   - ANOVA or F-tests to test variation across multiple categories
-2. **Predictive Modeling**
-   - Train classifiers to predict conversion using behavioral metrics
-3. **Final Report**
-   - Combine findings, visuals, and code into a comprehensive GitHub-based report
+With EDA and hypothesis testing complete, I will now:
+- Begin Machine Learning Modeling to predict conversion using logistic regression and tree-based models  
+- Tune models and evaluate performance using metrics like accuracy, precision and recall.
+- Finalize the project with an interpreted and visualized report  
 
 ---
 
@@ -161,8 +155,9 @@ These are real types of questions I asked ChatGPT throughout the project. They r
 
 I didn’t just copy the code I received. I read through the explanation, tested it on my data, and sometimes rewrote or simplified it to match my level. Some of the code was directly used (especially in visualization or clustering), but I made sure I understood what each line was doing.
 
+---
 
-## Tools & Technologies
+## Requirements
 
 - **Python 3.12**
 - **pandas, numpy** – data manipulation
@@ -182,9 +177,7 @@ I didn’t just copy the code I received. I read through the explanation, tested
 │
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb
-│   ├── 02_feature_engineering.ipynb
+│   ├── 02_data_enriching.ipynb
 │   └── 03_exploratory_analysis.ipynb
-│
-├── figures/                  # Saved plots (optional if using plt.show)
-├── requirements.txt
+│   └── 04_hypothesis_testing.ipynb
 └── README.md
