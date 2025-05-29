@@ -39,52 +39,12 @@ Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/46
 
 ---
 
-## What I’ve Done So Far
+## Folder Structure
 
-### 1. Data Cleaning
-- Handled zero-duration sessions  
-- Checked for outliers and consistency  
-
-### 2. Feature Engineering
-Created several new metrics:
-- Engagement Score combining time, clicks, and bounce rates  
-- Browsing Efficiency and Time Efficiency  
-- Interest Category based on page focus (product, informational, etc.)  
-- Behavioral Segmentation using KMeans clustering  
-
-### 3. Exploratory Data Analysis (EDA)
-- Analyzed conversion patterns across visitor types, behavior clusters, and months  
-- Visualized engagement vs. conversion distributions  
-- Investigated bounce/exit rates and their effect on outcomes  
-
-### 4. Hypothesis Testing
-Used statistical tests to confirm whether behavior differences between converters and non-converters were significant:
-- Weekend vs Weekday → Z-Test (p = 0.0022)  
-- Bounce Rate → t-Test (p < 0.001)  
-- Interest Category → ANOVA (p = 0.1523)  
-- Engagement Score → t-Test (p < 0.001)  
-
----
-
-## Key Findings
-
-- Conversion rate: 15.63% overall  
-- Strongest predictors: `value_potential`, `PageValues`, `engagement_score`  
-- Segment Insights:  
-  - High Converters segment had a 78% conversion rate  
-  - Quick Bouncers converted less than 1%  
-- Returning visitors converted significantly more than new visitors  
-- Engagement score is strongly linked with conversion behavior  
-
----
-
-## Next Steps
-
-With EDA and hypothesis testing complete, I will now:
-- Begin Machine Learning Modeling to predict conversion using logistic regression and tree-based models  
-- Tune models and evaluate performance using metrics like accuracy, precision and recall.
-- Finalize the project with an interpreted and visualized report  
-
+- `data/` – Raw, cleaned, and enriched datasets  
+- `notebooks/` – Jupyter notebooks for each project stage  
+- `report/` – Full project report (detailed findings and answers to research questions)
+  
 ---
 
 ## Project Process and AI Assistance
@@ -159,25 +119,8 @@ I didn’t just copy the code I received. I read through the explanation, tested
 
 ## Requirements
 
-- **Python 3.12**
+- **Python 3.12** (recommended)
 - **pandas, numpy** – data manipulation
 - **matplotlib, seaborn** – data visualization
 - **scikit-learn** – clustering and normalization
 - **Jupyter Notebooks** – exploratory workflow
-
----
-
-## Repository Structure
-
-```bash
-├── data/
-│   ├── raw/                  # Original dataset
-│   ├── processed/            # Cleaned dataset
-│   └── enriched/             # Feature-enriched version
-│
-├── notebooks/
-│   ├── 01_data_cleaning.ipynb
-│   ├── 02_data_enriching.ipynb
-│   └── 03_exploratory_analysis.ipynb
-│   └── 04_hypothesis_testing.ipynb
-└── README.md
