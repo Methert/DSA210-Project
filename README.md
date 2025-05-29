@@ -39,6 +39,10 @@ Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/46
 
 ---
 
+## Report
+
+All the explanations and key findings are in the report folder.
+
 ## Folder Structure
 
 - `data/` – Raw, cleaned, and enriched datasets  
