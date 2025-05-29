@@ -1,6 +1,6 @@
 This report explains my analysis of online shoppers’ behavior, covering every step from raw data exploration to machine learning modeling. Each section describes a different part of my workflow, starting from the initial state of the data and going through cleaning, feature engineering, hypothesis testing, and prediction.
 
-EDA_beforeCleaningV4.ipynb – Getting Familiar with the Raw Data
+**Getting Familiar with the Raw Data**
 In this section, I focused on the original online shoppers dataset before any cleaning or changes. I started by loading the data and just getting a sense of its general structure—number of rows, main columns, and what the first few records look like. The idea here was to see the natural state of the data, including all the messy and possibly weird values.
 
 I checked basic statistics to get an idea about typical session lengths, how bounce rates and exit rates are distributed, and what kind of values show up in the dataset. While doing this, I noticed a lot of zeros, especially in the duration columns, and realized some sessions might actually be empty or non-human interactions. I also looked at how conversion rates (Revenue) were distributed overall, and made some quick breakdowns by month and visitor type.
