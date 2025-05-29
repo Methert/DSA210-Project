@@ -2,9 +2,8 @@
 
 This report explains my analysis of online shoppers’ behavior, covering every step from raw data exploration to machine learning modeling. Each section describes a different part of my workflow, starting from the initial state of the data and going through cleaning, feature engineering, hypothesis testing, and prediction.
 
----
 
-## EDA_beforeCleaningV4.ipynb – Getting Familiar with the Raw Data
+## Getting Familiar with the Raw Data
 
 In this section, I focused on the original online shoppers dataset before any cleaning or changes. I started by loading the data and just getting a sense of its general structure—number of rows, main columns, and what the first few records look like. The idea here was to see the natural state of the data, including all the messy and possibly weird values.
 
@@ -12,25 +11,22 @@ I checked basic statistics to get an idea about typical session lengths, how bou
 
 At this point, I didn’t try to “fix” anything—my goal was just to observe and note patterns or outliers that might need attention in later steps. This exploration helped shape my approach for data cleaning and set a baseline for later analysis.
 
----
 
-## online_shoppers_V4.ipynb – Data Cleaning and Preparation
+## Data Cleaning and Preparation
 
 After getting a sense of the raw data, I moved on to the cleaning phase. In this notebook, I worked on filtering out sessions that didn’t make sense for analysis—like those with zero time spent on all page types, which I considered noise or bot activity. I also checked for outliers and made sure data types were correct for further analysis.
 
 Once the obvious noise was removed, I did some basic exploratory analysis again to see how the cleaned data looked compared to the original. I looked at things like conversion rates, the breakdown of sessions by month and visitor type, and the distribution of key metrics. This gave me a better foundation for the next steps, like feature engineering and deeper analysis, with a dataset that was more trustworthy and ready for actual modeling.
 
----
 
-## online_shoppers_enrichmentV4.ipynb – Feature Engineering & Enrichment
+## Feature Engineering & Enrichment
 
 In this part, I focused on creating new features to better capture user behavior. Using what I noticed in the earlier EDA, I designed metrics like engagement score, product ratio, and some categorical groupings based on page types and time spent. I also experimented with clustering (like KMeans) to segment users into different behavioral groups.
 
 The goal here was to go beyond the basic columns and make the dataset richer and more informative for both hypothesis testing and future machine learning. After building these new features, I updated the cleaned data and saved it for use in the next analysis steps.
 
----
 
-## online_shoppers_edaV4.ipynb – EDA After Feature Engineering
+## EDA After Feature Engineering
 
 In this file, I explored the dataset after feature engineering and enrichment. I looked at how the new features—like engagement score and product ratio—related to conversion, and checked their distributions. I used visualizations and grouped statistics to dig deeper into patterns, such as which visitor types or months saw the highest conversion rates.
 
@@ -38,7 +34,7 @@ This round of EDA helped me understand which features seemed most promising for 
 
 ---
 
-## online_shoppers_hypothesis_V4.ipynb – Hypothesis Testing
+## Hypothesis Testing
 
 In this section I applied statistical tests to see which features actually separate buyers from non-buyers. I started by running t-tests on several of the main metrics. For example, the engagement score turned out not to matter at all (t=0.01, p=0.99) since the means for buyers and non-buyers were nearly identical. The same was true for average time per page and exit rates—no meaningful difference between groups.
 
@@ -52,7 +48,7 @@ In summary, product ratio, being a returning visitor, and visiting on weekends w
 
 ---
 
-## ML2.ipynb – Predicting Conversion: Machine Learning Results & Insights
+## Predicting Conversion: Machine Learning Results & Insights
 
 In this final section of the project, I built and evaluated a machine learning model to predict whether a session would lead to a purchase. Because my data was heavily imbalanced—only a small fraction of sessions actually ended in a purchase—I focused on both model performance and how to interpret the results realistically.
 
