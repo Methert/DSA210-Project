@@ -32,7 +32,6 @@ In this file, I explored the dataset after feature engineering and enrichment. I
 
 This round of EDA helped me understand which features seemed most promising for prediction and which user segments were more likely to convert. It set the stage for statistical testing and building ML models in the next steps.
 
----
 
 ## Hypothesis Testing
 
@@ -46,7 +45,6 @@ Finally, I checked for differences across months with ANOVA. There was a huge ef
 
 In summary, product ratio, being a returning visitor, and visiting on weekends were among the features most strongly linked to conversion, while others (like engagement score) didn’t really matter.
 
----
 
 ## Predicting Conversion: Machine Learning Results & Insights
 
@@ -58,7 +56,6 @@ After selecting features based on earlier statistical tests, I used logistic reg
 
 With imbalanced data, a model will almost always predict the majority class (non-buyers) unless you lower the threshold for predicting a buyer. By reporting results at multiple thresholds, I can show the trade-off between catching more buyers (recall) and being more precise (precision). This is important because, in real applications, you might want to prioritize one over the other.
 
----
 
 ### Threshold Analysis Table
 
@@ -78,7 +75,6 @@ Below are the key metrics at different probability thresholds for the logistic r
 
 This table makes it clear: with such imbalanced data, there’s no perfect setting where both precision and recall for buyers are high. Lowering the threshold increases recall but drops precision sharply.
 
----
 
 ### Comments on the Graphs
 
@@ -91,19 +87,16 @@ This plot shows which features push the prediction towards purchase or not. Posi
 **Precision and Recall vs. Threshold:**  
 This plot is key for understanding the trade-offs in a real-world setting. As I lower the threshold, recall for buyers climbs quickly—almost all buyers are predicted at the lowest thresholds. But precision drops, so most sessions flagged as buyers aren’t actually buyers. There’s no sweet spot where both are high, so the threshold really depends on what the business cares about: finding every possible buyer (recall), or being sure that those flagged are actually buyers (precision).
 
----
 
 ### Why I Showed Different Thresholds
 
 I reported different thresholds because, with this data, using the default threshold isn’t enough. With so few buyers, the model will almost always default to “no purchase.” By showing results at different levels, I can be transparent about what’s actually possible. Depending on the application, a business might want to prioritize catching as many buyers as possible, or might be okay missing some if it means fewer false positives.
 
----
 
 ### Limitations Due to Data Imbalance
 
 Even after careful feature engineering, statistical testing, and model tuning, the model’s ability to perfectly identify buyers is limited by the underlying data. When buyers are less than 5% of sessions, the model is almost always right by saying “no purchase,” but this isn’t very useful if you want to actually find real buyers. Adjusting the threshold helps, but the precision-recall tradeoff is a fundamental limitation here. In short, with this data, this was the maximum I could do with standard methods.
 
----
 
 ## Connecting Results to My Research Questions
 
@@ -122,7 +115,6 @@ Even after careful feature engineering, statistical testing, and model tuning, t
 - **Do weekend visits or specific months lead to more purchases?**  
   Yes, weekend sessions and sessions in November/December had higher conversion rates, as confirmed by both hypothesis testing and model results.
 
----
 
 ## Summary
 
