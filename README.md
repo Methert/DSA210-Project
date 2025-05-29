@@ -101,12 +101,6 @@ These are real types of questions I asked ChatGPT throughout the project. They r
 
 ---
 
-#### “How do I make a radar chart to compare clusters based on engagement or browsing metrics?”
-
-**Why I asked:** I saw radar charts in online examples and thought they could help visualize the profiles of each user segment.
-
----
-
 #### “Can you fix this code/ can you fix the errors in the explanation and revise it accordingly”
 
 **Why I asked:** I had some challenges on some parts of code, also I wanted to make sure that there was no grammar error in explanations etc.
